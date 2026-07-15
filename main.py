@@ -42,3 +42,23 @@ st.sidebar.link_button(label="Github",url="https://github.com/mahady13",use_cont
 st.title("WhatToReadNext")
 st.info("""**WhatToReadNext** recommends books based on collaborative filtering algorithm, analyzing ratings from thousands of top readers.""")
 input_book=st.selectbox("Enter a book title you read:",books_with_ratings['Book-Title'].sort_values().unique())
+
+if st.button("Recommend"):
+    recommended_books=recommend_books(input_book)
+    st.write("---")
+    st.subheader("**Recommended Books For You**")
+    cols=st.columns(5)
+    for i,col in enumerate(cols):
+        if i< len(recommended_books):
+            book=recommended_books[i]
+            name=book[0]
+            author=book[1]
+            img=book[2]
+            if len(name)>20:
+                name=name[:20]+"..."
+            else:
+                name=name
+            with col:
+                st.image(img, width="stretch")
+                st.markdown(f"**{name}**")
+                st.caption(f"By **{author}**")
