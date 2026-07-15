@@ -26,3 +26,15 @@ def recommend_books(book):
         item.extend(list(temp_df.drop_duplicates('Book-Title')["Image-URL-L"].values))
         data.append(item)
     return data
+
+st.sidebar.title("About This Project")
+st.sidebar.info("""
+    **WhatToReadNext** is a Book Recommendation Engine built using:
+    - **Collaborative Filtering** algorithm
+    - **Cosine Similarity** to calculate distance between books
+    - Dataset: 270,000+ books from Book-Crossing Dataset
+    """)
+st.sidebar.write("---")
+st.sidebar.markdown("Developed by **Mohiuddin Mahady**")
+st.sidebar.link_button(url="https://linkedin.com/in/mohiuddin-mahady",label="LinkedIn",use_container_width=True)
+st.sidebar.link_button(label="Github",url="https://github.com/mahady13",use_container_width=True)
