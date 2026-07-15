@@ -38,3 +38,7 @@ st.sidebar.write("---")
 st.sidebar.markdown("Developed by **Mohiuddin Mahady**")
 st.sidebar.link_button(url="https://linkedin.com/in/mohiuddin-mahady",label="LinkedIn",use_container_width=True)
 st.sidebar.link_button(label="Github",url="https://github.com/mahady13",use_container_width=True)
+
+st.title("WhatToReadNext")
+st.info("""**WhatToReadNext** recommends books based on collaborative filtering algorithm, analyzing ratings from thousands of top readers.""")
+input_book=st.selectbox("Enter a book title you read:",books_with_ratings['Book-Title'].sort_values().unique())
